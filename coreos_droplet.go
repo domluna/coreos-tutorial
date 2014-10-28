@@ -13,7 +13,7 @@ type CoreOSClient struct {
 
 func (c *CoreOSClient) createCoreOS(name string, opts *dogo.CreateDropletOpts) error {
 	opts.Name = name
-	_, err := c.CreateDroplet(opts)
+	_, err := c.Client.CreateDroplet(opts)
 	if err != nil {
 		return err
 	}
@@ -22,15 +22,15 @@ func (c *CoreOSClient) createCoreOS(name string, opts *dogo.CreateDropletOpts) e
 }
 
 func (c *CoreOSClient) createCoreDroplets(opts *dogo.CreateDropletOpts) (error) {
-	err := c.createCoreOS("coreos-4", opts)
+	err := c.createCoreOS("coreosA", opts)
 	if err != nil {
 		return err
 	}
-	err = c.createCoreOS("coreos-5", opts)
+	err = c.createCoreOS("coreosB", opts)
 	if err != nil {
 		return err
 	}
-	err = c.createCoreOS("coreos-6", opts)
+	err = c.createCoreOS("coreosC", opts)
 	if err != nil {
 		return err
 	}
