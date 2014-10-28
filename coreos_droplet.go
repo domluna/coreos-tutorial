@@ -21,7 +21,7 @@ func (c *CoreOSClient) createCoreOS(name string, opts *dogo.CreateDropletOpts) e
 	return nil
 }
 
-func (c *CoreOSClient) createCoreDroplets(opts *dogo.CreateDropletOpts) (error) {
+func (c *CoreOSClient) createCoreDroplets(opts *dogo.CreateDropletOpts) error {
 	err := c.createCoreOS("coreosA", opts)
 	if err != nil {
 		return err
@@ -56,7 +56,8 @@ func main() {
 		Region:            "nyc3",
 		Size:              "512mb",
 		Image:             5914637,
-		Keys:           []string{"136188"},
+		// Your key id would be here
+		Keys:              []string{"136188"},
 		PrivateNetworking: true,
 		UserData:          string(file),
 	}
